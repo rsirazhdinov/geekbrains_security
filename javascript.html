@@ -1,0 +1,40 @@
+<body>
+<h1 id="header"></h1>
+<button onClick="f()">Press</button>
+<button onClick="f1()">Add img</button>
+<button onClick="f2()">Get XHR</button>
+<script>
+function f(){
+    alert("Javascript is magic");
+};
+
+function f1(){
+var iElem = document.createElement("img");
+iElem.src = "img_100.jpg";
+document.body.appendChild(iElem);
+};
+
+function f2(){
+var xhr = new XMLHttpRequest;
+xhr.open("GET", "http://localhost/array.json", false);
+xhr.send();
+
+  if (xhr.status != 200) {
+     alert(xhr.status + ': ' + xhr.statusText);
+  } else {
+    result = JSON.parse(xhr.responseText);
+    console.log(result);
+var sum = 0;
+for(var i = 0; i < result['summe'].length; i++){
+    sum += result['summe'][i];
+    }
+     alert(sum);
+  }
+
+}
+
+
+</script>
+
+
+</body>
